@@ -1,7 +1,7 @@
 (function() {
   var margin = { top: 20, left: 100, right: 30, bottom: 30},
     height = 400 - margin.top - margin.bottom,
-    width = 700 - margin.left - margin.right;
+    width = 600 - margin.left - margin.right;
 
   // Build your SVG
   var svg = d3.select("#graphic-1")
@@ -98,6 +98,7 @@
         .attr("x", function(d, i){
           return xPositionScale(d['country']);
         })
+        .attr("fill", '#66c2a5')
     })
 
 
@@ -122,6 +123,7 @@
         .attr("x", function(d, i){
           return xPositionScale(d['country']);
         })
+        .attr("fill", "#fc8d62")
     })
 
     d3.select("#teachers").on('stepin', function() {
@@ -145,6 +147,7 @@
         .attr("x", function(d, i){
           return xPositionScale(d['country']);
         })
+        .attr("fill", "#e78ac3")
     })
 
 
@@ -169,6 +172,7 @@
         .attr("x", function(d, i){
           return xPositionScale(d['country']);
         })
+        .attr("fill", "#1f78b4")
     })
 
 
@@ -194,6 +198,7 @@
         .attr("x", function(d, i){
           return xPositionScale(d['country']);
         })
+        .attr("fill", '#a6d854')
     })
 
 
@@ -218,6 +223,7 @@
         .attr("x", function(d, i){
           return xPositionScale(d['country']);
         })
+        .attr("fill", "#ffd92f")
     })
 
     d3.select("#professionals").on('stepin', function() {
@@ -241,6 +247,7 @@
         .attr("x", function(d, i){
           return xPositionScale(d['country']);
         })
+        .attr("fill", "#8c510a")
     })
 
 
