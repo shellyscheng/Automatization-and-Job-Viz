@@ -24,7 +24,7 @@
     .range([0, width])
 
   var yPositionScale = d3.scaleLinear()
-    .domain([-30, 250])
+    .domain([-50, 240])
     .range([height, 0])
 
   // var barYPositionScale = d3.scaleBand()
@@ -60,7 +60,7 @@
 
 
     /*
-      Draw some axes
+      Draw some axis
     */
 
     var xAxis = d3.axisBottom(xPositionScale)
@@ -70,17 +70,24 @@
       .attr("transform", "translate(0," + yPositionScale(0) + ")")
       .call(xAxis)
 
-    var yAxis = d3.axisLeft(yPositionScale)
-
+    var yAxis = d3.axisLeft(yPositionScale).ticks(6).tickSize(-width)
     svg.append("g")
       .attr("class", "axis y-axis")
-      .call(yAxis)
+      .call(yAxis);
+
+    svg.selectAll(".tick line")
+      .attr("stroke-dasharray", 2)
+      .attr("fill", "#d9d9d9")
+
+    svg.selectAll(".domain").remove()
 
     /*
       Let's listen for events
     */
 
     d3.select("#creatives").on('stepin', function() {
+      svg.selectAll('rect').remove()
+
       svg.selectAll("rect")
         .data(datapoints)
         .enter().append("rect")
