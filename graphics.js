@@ -24,7 +24,7 @@
     .range([0, width])
 
   var yPositionScale = d3.scaleLinear()
-    .domain([-50, 240])
+    .domain([-0.5, 2.40])
     .range([height, 0])
 
   // var barYPositionScale = d3.scaleBand()
@@ -49,40 +49,14 @@
     .await(ready)
 
   function ready(error, datapoints) {
-    //console.log(datapoints)
+    console.log(datapoints)
     /* 
       Set the maximums for the scales (gdp + life expectancy) 
     */
     
-    /*
-      Draw some circles
-    */   
-
 
     /*
-      Draw some axis
-    */
-
-    var xAxis = d3.axisBottom(xPositionScale)
-
-    svg.append("g")
-      .attr("class", "axis x-axis")
-      .attr("transform", "translate(0," + yPositionScale(0) + ")")
-      .call(xAxis)
-
-    var yAxis = d3.axisLeft(yPositionScale).ticks(6).tickSize(-width)
-    svg.append("g")
-      .attr("class", "axis y-axis")
-      .call(yAxis);
-
-    svg.selectAll(".tick line")
-      .attr("stroke-dasharray", 2)
-      .attr("fill", "#d9d9d9")
-
-    svg.selectAll(".domain").remove()
-
-    /*
-      Let's listen for events
+      Listen for events
     */
 
     d3.select("#creatives").on('stepin', function() {
@@ -256,6 +230,28 @@
         })
         .attr("fill", "#8c510a")
     })
+
+     /*
+      Draw some axis
+    */
+
+    var xAxis = d3.axisBottom(xPositionScale)
+
+    svg.append("g")
+      .attr("class", "axis x-axis")
+      .attr("transform", "translate(0," + yPositionScale(0) + ")")
+      .call(xAxis)
+
+    var yAxis = d3.axisLeft(yPositionScale).ticks(6).tickFormat(d3.format(".0%")).tickSize(-width)
+    svg.append("g")
+      .attr("class", "axis y-axis")
+      .call(yAxis);
+
+    svg.selectAll(".tick line")
+      .attr("stroke-dasharray", 2)
+      .attr("fill", "#d9d9d9")
+
+    svg.selectAll(".domain").remove()
 
 
   }
