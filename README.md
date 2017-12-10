@@ -7,4 +7,4 @@ This visualization work highlights scenarios for the future of work in our six f
 Text and Data from McKinsey Global Institute’s latest report, <a href="https://www.mckinsey.com/~/media/mckinsey/global%20themes/future%20of%20organizations/what%20the%20future%20of%20work%20will%20mean%20for%20jobs%20skills%20and%20wages/mgi%20jobs%20lost-jobs%20gained_report_december%202017.ashx">Jobs lost, jobs gained: Workforce transitions in a time of automation</a>
 
 
-Project is visible at <a href=https://shiyingcheng.github.io/Automatization-and-Job-Market-Change-Viz/>here</a>
+Project is visible at <a href=https://shiyingcheng.github.io/Automatization-and-Job-Viz/>here</a>
