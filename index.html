@@ -67,7 +67,16 @@
       }
 
       .bg2 {
-        background: url('background.jpg');
+        background: url('background2.png');
+      }
+
+      .transbox {
+        margin: 30px;
+        padding: 30px 15px;
+        background-color: #ffffff;
+        border: none;
+        opacity: 0.8;
+        filter: alpha(opacity=80); /* For IE8 and earlier */
       }
 
       .background-image {
@@ -77,17 +86,21 @@
           150px spacing between text and top/bottom of image
           20px spacing between text and left/right of screen
         */
-        color: white;
+      }
+
+      .transbox h1 {
+        text-transform: uppercase;
+        color: #000000;
+        font-family: "Geogria";
+        font-weight: bold;
         text-align: center;
+        font-size: 53px;
         text-shadow: 0 0 5px rgba(0,0,0,0.5), 
                      0 0 15px rgba(0,0,0,0.5),
                      0 0 25px rgba(0,0,0,0.5);
       }
 
-      .background-image h1 {
-        text-transform: uppercase;
-        font-size: 65px;
-      }
+      
       /* 
         End full-bleed backgrounds 
       */
@@ -131,9 +144,11 @@
 
 <body>
   <div class="background-image bg1">
-    <h1>Will you lose your jobs in 2030? </h1>
-    <h3>workforce transitions in a time of automation</h3>
-    <h4> Visuals by Shiying Cheng | Dec 9, 2017 </h4>
+    <div class="transbox">
+      <h1>Will you lose your jobs in 2030? </h1>
+      <h3>workforce transitions in a time of automation</h3>
+      <h4> Visuals by Shiying Cheng | Dec 9, 2017 </h4>
+    </div>
   </div>
 
   <div class="container">
@@ -221,7 +236,7 @@
 </div>
 
 
-  <div class="background-image bg1">
+  <div class="background-image bg2">
   </div>
 
   <footer>
