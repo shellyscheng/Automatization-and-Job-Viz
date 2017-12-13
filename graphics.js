@@ -50,187 +50,7 @@
 
   function ready(error, datapoints) {
     console.log(datapoints)
-    /* 
-      Set the maximums for the scales (gdp + life expectancy) 
-    */
     
-
-    /*
-      Listen for events
-    */
-
-    d3.select("#creatives").on('stepin', function() {
-      svg.selectAll('rect').remove()
-
-      svg.selectAll("rect")
-        .data(datapoints)
-        .enter().append("rect")
-        .attr("height", function(d) {
-          return Math.abs(yPositionScale(0) - yPositionScale(d['creative']))
-        })
-        .attr("width", xPositionScale.bandwidth())
-        .attr("y", function(d){
-          if(d['creative'] < 0) {
-            return yPositionScale(0)
-          } else {
-            return yPositionScale(d['creative'])
-          }
-        })
-        .attr("x", function(d, i){
-          return xPositionScale(d['country']);
-        })
-        .attr("fill", '#66c2a5')
-    })
-
-
-    d3.select("#technology").on('stepin', function() {
-      
-      svg.selectAll('rect').remove()
-
-      svg.selectAll("rect")
-        .data(datapoints)
-        .enter().append("rect")
-        .attr("height", function(d) {
-          return Math.abs(yPositionScale(0) - yPositionScale(d['technology']))
-        })
-        .attr("width", xPositionScale.bandwidth())
-        .attr("y", function(d){
-          if(d['technology'] < 0) {
-            return yPositionScale(0)
-          } else {
-            return yPositionScale(d['technology'])
-          }
-        })
-        .attr("x", function(d, i){
-          return xPositionScale(d['country']);
-        })
-        .attr("fill", "#fc8d62")
-    })
-
-    d3.select("#teachers").on('stepin', function() {
-      
-      svg.selectAll('rect').remove()
-
-      svg.selectAll("rect")
-        .data(datapoints)
-        .enter().append("rect")
-        .attr("height", function(d) {
-          return Math.abs(yPositionScale(0) - yPositionScale(d['teacher']))
-        })
-        .attr("width", xPositionScale.bandwidth())
-        .attr("y", function(d){
-          if(d['teacher'] < 0) {
-            return yPositionScale(0)
-          } else {
-            return yPositionScale(d['teacher'])
-          }
-        })
-        .attr("x", function(d, i){
-          return xPositionScale(d['country']);
-        })
-        .attr("fill", "#e78ac3")
-    })
-
-
-    d3.select("#managers").on('stepin', function() {
-      
-      svg.selectAll('rect').remove()
-
-      svg.selectAll("rect")
-        .data(datapoints)
-        .enter().append("rect")
-        .attr("height", function(d) {
-          return Math.abs(yPositionScale(0) - yPositionScale(d['manager']))
-        })
-        .attr("width", xPositionScale.bandwidth())
-        .attr("y", function(d){
-          if(d['manager'] < 0) {
-            return yPositionScale(0)
-          } else {
-            return yPositionScale(d['manager'])
-          }
-        })
-        .attr("x", function(d, i){
-          return xPositionScale(d['country']);
-        })
-        .attr("fill", "#1f78b4")
-    })
-
-
-
-    d3.select("#builders").on('stepin', function() {
-      
-      svg.selectAll('rect').remove()
-
-      svg.selectAll("rect")
-        .data(datapoints)
-        .enter().append("rect")
-        .attr("height", function(d) {
-          return Math.abs(yPositionScale(0) - yPositionScale(d['builder']))
-        })
-        .attr("width", xPositionScale.bandwidth())
-        .attr("y", function(d){
-          if(d['builder'] < 0) {
-            return yPositionScale(0)
-          } else {
-            return yPositionScale(d['builder'])
-          }
-        })
-        .attr("x", function(d, i){
-          return xPositionScale(d['country']);
-        })
-        .attr("fill", '#a6d854')
-    })
-
-
-    d3.select("#cares").on('stepin', function() {
-      
-      svg.selectAll('rect').remove()
-
-      svg.selectAll("rect")
-        .data(datapoints)
-        .enter().append("rect")
-        .attr("height", function(d) {
-          return Math.abs(yPositionScale(0) - yPositionScale(d['care']))
-        })
-        .attr("width", xPositionScale.bandwidth())
-        .attr("y", function(d){
-          if(d['care'] < 0) {
-            return yPositionScale(0)
-          } else {
-            return yPositionScale(d['care'])
-          }
-        })
-        .attr("x", function(d, i){
-          return xPositionScale(d['country']);
-        })
-        .attr("fill", "#ffd92f")
-    })
-
-    d3.select("#professionals").on('stepin', function() {
-      
-      svg.selectAll('rect').remove()
-
-      svg.selectAll("rect")
-        .data(datapoints)
-        .enter().append("rect")
-        .attr("height", function(d) {
-          return Math.abs(yPositionScale(0) - yPositionScale(d['professional']))
-        })
-        .attr("width", xPositionScale.bandwidth())
-        .attr("y", function(d){
-          if(d['professional'] < 0) {
-            return yPositionScale(0)
-          } else {
-            return yPositionScale(d['professional'])
-          }
-        })
-        .attr("x", function(d, i){
-          return xPositionScale(d['country']);
-        })
-        .attr("fill", "#8c510a")
-    })
-
      /*
       Draw some axis
     */
@@ -252,6 +72,208 @@
       .attr("fill", "#d9d9d9")
 
     svg.selectAll(".domain").remove()
+
+
+    // draw the first graph
+    svg.selectAll("rect")
+      .data(datapoints)
+      .enter().append("rect")
+      .attr("height", function(d) {
+        return Math.abs(yPositionScale(0) - yPositionScale(d['creative']))
+      })
+      .attr("width", xPositionScale.bandwidth())
+      .attr("y", function(d){
+        if(d['creative'] < 0) {
+          return yPositionScale(0)
+        } else {
+          return yPositionScale(d['creative'])
+        }
+      })
+      .attr("x", function(d, i){
+        return xPositionScale(d['country']);
+      })
+      .attr("fill", '#66c2a5')
+    
+
+    /*
+      Listen for events
+    */
+
+    d3.select("#creatives").on('stepin', function() {
+     
+      svg.selectAll("rect")
+        .data(datapoints)
+        .transition()
+        .attr("height", function(d) {
+          return Math.abs(yPositionScale(0) - yPositionScale(d['creative']))
+        })
+        //.attr("width", xPositionScale.bandwidth())
+        .attr("y", function(d){
+          if(d['creative'] < 0) {
+            return yPositionScale(0)
+          } else {
+            return yPositionScale(d['creative'])
+          }
+        })
+        // .attr("x", function(d, i){
+        //   return xPositionScale(d['country']);
+        // })
+        .attr("fill", '#66c2a5')
+    })
+
+
+    d3.select("#technology").on('stepin', function() {
+      
+      //svg.selectAll('rect').remove()
+
+      svg.selectAll("rect")
+        .data(datapoints)
+        .transition()
+        .attr("height", function(d) {
+          return Math.abs(yPositionScale(0) - yPositionScale(d['technology']))
+        })
+        //.attr("width", xPositionScale.bandwidth())
+        .attr("y", function(d){
+          if(d['technology'] < 0) {
+            return yPositionScale(0)
+          } else {
+            return yPositionScale(d['technology'])
+          }
+        })
+        // .attr("x", function(d, i){
+        //   return xPositionScale(d['country']);
+        // })
+        .attr("fill", "#fc8d62")
+    })
+
+    d3.select("#teachers").on('stepin', function() {
+      
+      //svg.selectAll('rect').remove()
+
+      svg.selectAll("rect")
+        .data(datapoints)
+        .transition()
+        .attr("height", function(d) {
+          return Math.abs(yPositionScale(0) - yPositionScale(d['teacher']))
+        })
+        //.attr("width", xPositionScale.bandwidth())
+        .attr("y", function(d){
+          if(d['teacher'] < 0) {
+            return yPositionScale(0)
+          } else {
+            return yPositionScale(d['teacher'])
+          }
+        })
+        // .attr("x", function(d, i){
+        //   return xPositionScale(d['country']);
+        // })
+        .attr("fill", "#e78ac3")
+    })
+
+
+    d3.select("#managers").on('stepin', function() {
+      
+      //svg.selectAll('rect').remove()
+
+      svg.selectAll("rect")
+        .data(datapoints)
+        .transition()
+        .attr("height", function(d) {
+          return Math.abs(yPositionScale(0) - yPositionScale(d['manager']))
+        })
+        //.attr("width", xPositionScale.bandwidth())
+        .attr("y", function(d){
+          if(d['manager'] < 0) {
+            return yPositionScale(0)
+          } else {
+            return yPositionScale(d['manager'])
+          }
+        })
+        // .attr("x", function(d, i){
+        //   return xPositionScale(d['country']);
+        // })
+        .attr("fill", "#1f78b4")
+    })
+
+
+
+    d3.select("#builders").on('stepin', function() {
+      
+      //svg.selectAll('rect').remove()
+
+      svg.selectAll("rect")
+        .data(datapoints)
+        //.enter().append("rect")
+        .transition()
+        .attr("height", function(d) {
+          return Math.abs(yPositionScale(0) - yPositionScale(d['builder']))
+        })
+        //.attr("width", xPositionScale.bandwidth())
+        .attr("y", function(d){
+          if(d['builder'] < 0) {
+            return yPositionScale(0)
+          } else {
+            return yPositionScale(d['builder'])
+          }
+        })
+        // .attr("x", function(d, i){
+        //   return xPositionScale(d['country']);
+        // })
+        .attr("fill", '#a6d854')
+    })
+
+
+    d3.select("#cares").on('stepin', function() {
+      
+      //svg.selectAll('rect').remove()
+
+      svg.selectAll("rect")
+        .data(datapoints)
+        //.enter().append("rect")
+        .transition()
+        .attr("height", function(d) {
+          return Math.abs(yPositionScale(0) - yPositionScale(d['care']))
+        })
+        //.attr("width", xPositionScale.bandwidth())
+        .attr("y", function(d){
+          if(d['care'] < 0) {
+            return yPositionScale(0)
+          } else {
+            return yPositionScale(d['care'])
+          }
+        })
+        // .attr("x", function(d, i){
+        //   return xPositionScale(d['country']);
+        // })
+        .attr("fill", "#ffd92f")
+    })
+
+    d3.select("#professionals").on('stepin', function() {
+      
+      //svg.selectAll('rect').remove()
+
+      svg.selectAll("rect")
+        .data(datapoints)
+        //.enter().append("rect")
+        .transition()
+        .attr("height", function(d) {
+          return Math.abs(yPositionScale(0) - yPositionScale(d['professional']))
+        })
+        //.attr("width", xPositionScale.bandwidth())
+        .attr("y", function(d){
+          if(d['professional'] < 0) {
+            return yPositionScale(0)
+          } else {
+            return yPositionScale(d['professional'])
+          }
+        })
+        // .attr("x", function(d, i){
+        //   return xPositionScale(d['country']);
+        // })
+        .attr("fill", "#8c510a")
+    })
+
+    
 
 
   }
