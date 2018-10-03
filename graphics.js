@@ -1,13 +1,16 @@
 (function() {
-  var margin = { top: 20, left: 100, right: 30, bottom: 30},
+  var margin = { top: 20, left: 30, right: 30, bottom: 30},
     height = 400 - margin.top - margin.bottom,
     width = 600 - margin.left - margin.right;
 
   // Build your SVG
-  var svg = d3.select("#graphic-1")
+  var svg = d3.select("#chart-1")
         .append("svg")
-        .attr("height", height + margin.top + margin.bottom)
-        .attr("width", width + margin.left + margin.right)
+        // .attr("height", height + margin.top + margin.bottom)
+        // .attr("width", width + margin.left + margin.right)
+        .attr("preserveAspectRatio", "xMinYMin meet")
+        .attr("viewBox", "0 0 600 400")
+        .classed("svg-content", true)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -48,6 +51,14 @@
     })
     .await(ready)
 
+
+  // if($(window).width() < 600) {
+
+  // }
+  // else {
+
+  // }
+
   function ready(error, datapoints) {
     console.log(datapoints)
     
@@ -66,6 +77,8 @@
     svg.append("g")
       .attr("class", "axis y-axis")
       .call(yAxis);
+
+    console.log(yAxis);
 
     svg.selectAll(".tick line")
       .attr("stroke-dasharray", 2)
@@ -272,8 +285,6 @@
         // })
         .attr("fill", "#8c510a")
     })
-
-    
 
 
   }

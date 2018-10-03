@@ -1,0 +1,8 @@
+[
+  { "country": "China","creative":0.85, "technology":0.5, "teacher":1.19, "manager":0.4, "builder":0.09, "care":1.22, "professional":0.26},
+  { "country": "Germany", "creative":0.17, "technology":0.59, "teacher":0.17, "manager":0.21, "builder":0.13, "care":0.25, "professional":0.2},
+  { "country": "India", "creative":0.58, "technology":1.29, "teacher":2.08, "manager":0.75, "builder":1.17, "care":2.42, "professional":0.46},
+  { "country": "Japan", "creative":-0.04, "technology":0.15, "teacher":-0.08, "manager":0, "builder":-0.16, "care":-0.01, "professional":0.02},
+  { "country": "Mexico", "creative":0.28, "technology":0.27, "teacher":0.37, "manager":0.24, "builder":0.48, "care":0.83, "professional":0.32},
+  { "country": "United States", "creative":0.08, "technology":0.34, "teacher":0.09, "manager":0.15, "builder":0.35, "care":0.3, "professional":0.11}
+]

@@ -128,6 +128,16 @@
         font-size: 53px;
       }
 
+
+      #graphic-1 {
+        display: flex;
+      }
+
+      #chart {
+        display: flex;
+        flex-basis: 100%;
+      }
+
       
       /* 
         End full-bleed backgrounds 
@@ -166,6 +176,40 @@
         padding-top: 20px;
         font-size: 20px;
       }
+
+      @media  (min-width: 650px) {
+        .svg-container {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+            vertical-align: top;
+            overflow: hidden;
+        }
+      }
+
+      @media  (max-width: 650px) {
+
+        .svg-container {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+            vertical-align: top;
+            overflow: hidden;
+
+            top: 0px;
+            position: sticky;
+        }
+      }
+
+      .svg-content {
+          display: inline-block;
+          position: absolute;
+          top: 10;
+          left: 10;
+      }
+
     </style>
   </head>
 </head>
@@ -202,7 +246,7 @@
 
            <div class="step" id="managers">
             <h3 style = "color: #1f78b4">Managers and executives</h3>
-            <p></p>
+            <p>Includes: CEOs, sales managers</p>
           </div>
 
           <div class="step" id="teachers">
@@ -229,7 +273,8 @@
 
 
         <div class="col-sm-7 graphic sticky">
-          <div id="graphic-1"></div>
+          <div id="chart-1" class="svg-container">
+          </div>
         </div>
 
     </div>
@@ -278,6 +323,7 @@
   <!-- include our scrolling library -->
   <script src='https://unpkg.com/scrollama'></script>
   <script src='stickyfill.min.js'></script>
+  <!-- <script src='.js'></script> -->
 
   <script>
     /* Allow position: sticky to work in old browsers */
@@ -291,7 +337,7 @@
       .setup({
         offset: 0.50, // how far from the top?
         step: '.step', // class for stepping through
-        debug: false, // shows the line
+        debug: true, // shows the line
         container: 'container'
       })
       .onStepEnter(function(response) {
